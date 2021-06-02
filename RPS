@@ -1,0 +1,31 @@
+# Language: Ruby, Level: Level 3
+# rock, paper, scissors
+choice = %w[rock scissors paper]
+puts "Choose:
+      0 - #{choice[0]},
+      1 - #{choice[1]},
+      2 - #{choice[2]}"
+
+# inputs, declare choice
+user_choice = gets.to_i
+computer_choice = rand(3)
+
+# alerts
+abort "Can't really understand you mate" if !user_choice.between?(0, 2)
+
+# labels
+puts "Your choice is: #{choice[user_choice]}"
+puts "Computer choice is: #{choice[computer_choice]}"
+
+# win/lose condition
+if user_choice == computer_choice
+  puts "It is draw"
+elsif (user_choice == 0 && computer_choice == 1
+       user_choice == 1 && computer_choice == 2
+       user_choice == 2 && computer_choice == 0)
+  puts "You win"
+else  (user_choice == 0 && computer_choice == 2
+       user_choice == 1 && computer_choice == 0
+       user_choice == 2 && computer_choice == 1)
+  puts "You lost"
+end
